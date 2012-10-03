@@ -16,7 +16,7 @@ This project starts extremely small (implementation of Don't break the chain) bu
 
 About 'Don't Break the Chain' approach
 --------------------------------------
-Don't Break the chain is a self-improvement system designed to be a simple and elegant way to accomplish goals, like getting into better shape or learning a new program language, by completing daily tasks. 
+Don't Break the chain (explained in [this article](http://lifehacker.com/281626/jerry-seinfelds-productivity-secret)) is a self-improvement system designed to be a simple and elegant way to accomplish goals, like getting into better shape or learning a new program language, by completing daily tasks. 
 
 The daily task should be specific and limited in scope to the goal by using boundaries and rules that are realistic.  An example might be if I wanted to learn a new language, the goal, would be to take 15 to 20 minutes, which is a time boundary, to learn a new verb by practicing, within a specific scope, its conjugation.  
 
