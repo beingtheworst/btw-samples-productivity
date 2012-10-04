@@ -49,16 +49,15 @@ Lokad.CQRS author, interested in sharing Lokad practices (by supporting this pro
 
 
 
-### Agent Smith (since 2012-10-04)
+### Jason Wyglendowski (since 2012-10-04)
 
-Sample person. sPlease use him as a template for adding yourself as a member (while keeping John Doe as the last person in the list).
+I am a Dot Net developer, with 15 years of development experience in the Healthcare domain interested in mastering DDD through example and collaboration.
 
-**Interests in project**: serving as a sample member of the project.
+**Interests in project**: Becoming a better craftsman, learning to apply DDD properly in a variety of situations like smart clients and having the opportunity
+to give back to RInat and the Load.CQRS community.
 
 **Contacts**:
 
-* Email: /dev/null
-* Twitter: /dev/null
-* Skype: /dev/null
+* Email: jcwrequests@comcast.net
 
-**Preferred mode of communication**: Dev/null
+**Preferred mode of communication**: Email or through the Lokad.CQRS community
