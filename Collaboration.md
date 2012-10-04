@@ -20,7 +20,7 @@ These are the tasks that need to be done. Please, feel free to take ownership of
 
 * Set up infrastructure under `src` in this repository (using Lokad.CQRS as binary reference).
 * Document technical vocabulary of the project (Views, Projection etc).
-* Capture first domain model in stand-alone code in `prototypes\yyyy-mm-dd-model-1` **/ by Rinat**
+* Capture first domain model in stand-alone code in `prototypes\yyyy-mm-dd-model-1` 
 * Getting a list of people actively interested in the project and organizing a quick conference call.
 * Continue adding TODOs here **/ by Rinat**
 
