@@ -16,13 +16,15 @@ In this file:
 1. TODOs
 ----
 
-These are the tasks that need to be done. Please, feel free to take ownership of the tasks:
-
+These are the tasks that need to be done. Please, feel free to take ownership of the tasks. We can reorganize tasks section later, to fit Scrum, Agile or whatever.
 
 * Set up infrastructure under `src` in this repository (using Lokad.CQRS as binary reference).
 * Document technical vocabulary of the project (Views, Projection etc).
-* **Rinat:** Try capturing first domain model in stand-alone code in `prototypes\yyyy-mm-dd-model-1` 
-* **Rinat:** Continue adding TODOs here
+* Capture first domain model in stand-alone code in `prototypes\yyyy-mm-dd-model-1` **/ by Rinat**
+* Getting a list of people actively interested in the project and organizing a quick conference call.
+* Continue adding TODOs here **/ by Rinat**
+
+
 
 
 
