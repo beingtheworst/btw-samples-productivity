@@ -1,0 +1,2 @@
+Author:  Jason  Wyglendowski
+These are my initial thoughs on a Proto-type for Don't Break the Chain domain 
