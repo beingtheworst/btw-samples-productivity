@@ -1,4 +1,8 @@
-﻿public interface IIdentity
+﻿
+using System;
+using System.Collections;
+using System.Collections.Generic;
+public interface IIdentity
 {
     string GetId;
     string GetTag;
@@ -36,3 +40,11 @@ public interface IApplicationService
 {
     void Execute(ICommand command);
 }
+public interface IEventStore
+{
+    EventStream LoadEventStream(IIdentity id) ;
+    EventStream LoadEventStream(IIdentity id,long skipEvents,int maxCount);
+    void AppendToStream(IIdentity id,long expectedVersion,ICollection<IEvent> events);
+}
+
+

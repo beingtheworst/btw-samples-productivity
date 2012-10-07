@@ -16,7 +16,7 @@ namespace _2012_10_07_domain_model_jw.Aggregates.GoalAggregate
 
         public void SetGoal(GoalId id,string description,DateTime startDate, int lengthOfGoalInDays)
         {
-            if (_state.Created) throw  new InvalidOperationException("Goal Alread Set");
+            if (_state.Created) throw  new InvalidOperationException("Goal Already Set");
             Apply(new GoalSet(id,description,startDate,lengthOfGoalInDays));
         }
         public void Apply(IEvent e)
