@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace _2012_10_07_domain_model_jw.Aggregates.DailyTaskAggregate
+namespace _2012_10_07_domain_model_jw.Aggregates.DailyTask
 {
-    public class DailyTask
+    public class DailyTaskAggregate
     {
         public readonly IList<IEvent> Changes = new List<IEvent>();
         readonly DailyTaskState _state;
@@ -27,12 +27,12 @@ namespace _2012_10_07_domain_model_jw.Aggregates.DailyTaskAggregate
         {
             if (_state.TaskCompletedOn.HasValue) throw new InvalidOperationException("This Task has already been completed.");
             if (_state.TaskMissed) throw new InvalidOperationException("This task has already been missed.");
-            Apply(new DailyTaskMissed(id,taskDate)
+            Apply(new DailyTaskMissed(id,taskDate));
         }
-        public void test(DailyTaskId id,DateTime timeStarted)
+        public void StartTask(DailyTaskId id,DateTime timeStarted)
         {
             if (_state.TaskStartedAt.HasValue) throw new InvalidOperationException("This task has already been started");
-            Apply(new DailyTaskStarted(id,timeStarted)
+            Apply(new DailyTaskStarted(id, timeStarted));
         }
         public void Apply(IEvent e)
         {
