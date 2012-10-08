@@ -40,12 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aggregates\DailyTask\DailyTaskAggregate.cs" />
-    <Compile Include="Aggregates\DailyTask\DailyTaskApplicationService.cs" />
-    <Compile Include="Aggregates\DailyTask\DailyTaskState.cs" />
-    <Compile Include="Aggregates\Goal\GoalAggregate.cs" />
-    <Compile Include="Aggregates\Goal\GoalApplicationService.cs" />
-    <Compile Include="Aggregates\Goal\GoalState.cs" />
+    <Compile Include="Aggregates\DailyTaskAggregate\DailyTask.cs" />
+    <Compile Include="Aggregates\DailyTaskAggregate\DailyTaskApplicationService.cs" />
+    <Compile Include="Aggregates\DailyTaskAggregate\DailyTaskState.cs" />
+    <Compile Include="Aggregates\GoalAggregate\Goal.cs" />
+    <Compile Include="Aggregates\GoalAggregate\GoalApplicationService.cs" />
+    <Compile Include="Aggregates\GoalAggregate\GoalState.cs" />
     <Compile Include="Contracts\Identifiers.cs" />
     <Compile Include="Contracts\Interfaces.cs" />
     <Compile Include="Contracts\Messages.cs" />
