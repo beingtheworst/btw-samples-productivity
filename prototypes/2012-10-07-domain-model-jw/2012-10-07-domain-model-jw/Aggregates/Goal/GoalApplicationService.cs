@@ -18,7 +18,7 @@ namespace _2012_10_07_domain_model_jw.Aggregates.Goal
         }
         public void When(SetGoal command)
         {
-            Update(command.Id, g => g.SetGoal(command.Id, command.Description, command.StartDate, command.LengthOfGoalInDays));
+            Update(command.Id, g => g.SetGoal(command.Id, command.Description, command.StartDate, command.LengthOfGoalInDays, command.User));
         }
 
         public void Update(GoalId Id, Action<GoalAggreagate> execute)

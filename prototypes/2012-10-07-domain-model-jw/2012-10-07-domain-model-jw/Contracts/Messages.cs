@@ -5,12 +5,13 @@ using System.Runtime.Serialization;
 [DataContract(Namespace="DOMAIN")]
 public class GoalSet : IEvent
 {
-    public GoalSet(GoalId Id, string description, DateTime startDate, int lengthOfGoalInDays)
+    public GoalSet(GoalId Id, string description, DateTime startDate, int lengthOfGoalInDays, string user)
     {
         this.Id = Id;
         this.Description = description;
         this.StartDate = startDate;
         this.LengthOfGoalInDays = lengthOfGoalInDays;
+        this.User = user;
     }
     [DataMember(Order=1)]
     public GoalId Id { get; private set; }
@@ -20,6 +21,8 @@ public class GoalSet : IEvent
     public DateTime StartDate { get; private set; }
     [DataMember(Order = 4)]
     public int LengthOfGoalInDays { get; private set; }
+    [DataMember(Order = 5)]
+    public string User { get; private set; }
 
 }
 
@@ -27,12 +30,13 @@ public class GoalSet : IEvent
 [DataContract(Namespace = "DOMAIN")]
 public class SetGoal : ICommand
 {
-    public SetGoal(GoalId Id, string description, DateTime startDate, int lengthOfGoalInDays)
+    public SetGoal(GoalId Id, string description, DateTime startDate, int lengthOfGoalInDays, string user)
     {
         this.Id = Id;
         this.Description = description;
         this.StartDate = startDate;
         this.LengthOfGoalInDays = lengthOfGoalInDays;
+        this.User;
     }
     [DataMember(Order = 1)]
     public GoalId Id { get; private set; }
@@ -42,7 +46,8 @@ public class SetGoal : ICommand
     public DateTime StartDate { get; private set; }
     [DataMember(Order = 4)]
     public int LengthOfGoalInDays { get; private set; }
-
+    [DataMember(Order = 5)]
+    public string User { get; private set; }
 }
 
 [Serializable]

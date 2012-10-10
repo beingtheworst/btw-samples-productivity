@@ -20,6 +20,7 @@ namespace _2012_10_07_domain_model_jw.Aggregates.Goal
         public string Description { get; private set; }
         public DateTime StartDate { get; private set; }
         public int LengthOfGoalInDays { get; private set; }
+        public string User { get; set; }
 
         public void Mutate(IEvent @event)
         {
@@ -32,6 +33,7 @@ namespace _2012_10_07_domain_model_jw.Aggregates.Goal
             this.Id = e.Id;
             this.LengthOfGoalInDays = e.LengthOfGoalInDays;
             this.StartDate = e.StartDate;
+            this.User = e.User;
         }
     }
 }

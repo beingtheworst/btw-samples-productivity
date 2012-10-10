@@ -14,10 +14,10 @@ namespace _2012_10_07_domain_model_jw.Aggregates.Goal
             _state = new GoalState(events);
         }
 
-        public void SetGoal(GoalId id, string description, DateTime startDate, int lengthOfGoalInDays)
+        public void SetGoal(GoalId id, string description, DateTime startDate, int lengthOfGoalInDays, string user)
         {
             if (_state.Created) throw new InvalidOperationException("Goal Already Set");
-            Apply(new GoalSet(id, description, startDate, lengthOfGoalInDays));
+            Apply(new GoalSet(id, description, startDate, lengthOfGoalInDays,user));
         }
         public void Apply(IEvent e)
         {
