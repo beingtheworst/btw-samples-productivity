@@ -19,7 +19,7 @@ namespace _2012_10_07_domain_model_jw.Aggregates.DailyTask
         }
         public void When(AssignDailyTask c)
         {
-            Update(e.Id, a => a.AssignDailyTask(c.Id,
+            Update(c.Id, a => a.AssignDailyTask(c.Id,
                                               c.GoalId,
                                               c.TaskDate,
                                               c.Description));

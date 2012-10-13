@@ -28,7 +28,8 @@ namespace _2012_10_07_domain_model_jw.Projections
         {
             _writer.Add(e.Id, 
                         new GoalHierarchalView { Description = e.Description, 
-                                                 GoalId = e.Id, User = e.User });
+                                                 GoalId = e.Id, 
+                                                 User = e.User });
         }
     }
 }
