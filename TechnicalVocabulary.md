@@ -66,26 +66,81 @@ Software design pattern in which code reading data from storage is consciously k
 An idea of capturing everything that happens in the system in a stream of events. Thus no information is ever lost. When current (or not) state of the system is needed, events are replayed in the order they happened in the past until information we're interested in is generated.
 
 #### Message
-Information in the form which allows it to be transferred from one location to another. A letter would be an example of a message in the physical world.
+
+Data structure with a distinct name and some associated information, which can be persisted or sent over the network. An email or letter are examples of messages from the real world.
+
+Learn more: [BTW Episode 2 - Messaging Basics](http://beingtheworst.com/2012/episode-2-messaging-basics)
+
 
 #### Envelope
-Wrapper around message which provides facilities to identify the message, prevent (or at least check for) corruption, etc.
 
-#### Command
-Message with request to perform some operation by the system. In synchronous environment command can be rejected by the system (for example if it's invalid). In asynchronous environment command is always accepted, and if there's an issue with command a special event can be issued in response.
+Wrapper around message which helps to send it between systems, provides facilities to identify the message, prevent (or at least check for) corruption, etc.
 
-#### Event
-Message with historical information about what happened. In many cases events are generated in response to commands, when they're processed. In some circumstances event can come from outside the system notifying the system what happened in the outside world. Events are immutable. Once they're published they cannot be modified. If there's a problem a compensating command needs to be issued to fix the problem.
+#### Command Message (Command)
+
+Command is just a type of the message with which we associate specific meaning and behaviour. Command message is usually an instruction (request) for server or another recipient to perform a certain action. Based on the situation (e.g. availability of resources) recipient would be able to perform this action or arrive at some other outcome. We can have certain expectations about such outcome, but we are never sure.
+
+
+    public class AddChainLink : ICommand
+    {
+        public ChainId Id { get; set; }
+        public DateTime LinkDate { get; set; }
+        public string Comment { get; set; }
+    }   
+    
+    
+Command messages are usually sent either to a specific recipient or location (message queue).
+
+#### Event Message (Event)
+
+Event is a message that tells us about something that already happened in the past.
+
+
+    public class ChainLinkAdded : IEvent
+    {
+        public ChainId Id { get; set; }
+        public DateTime LinkDate { get; set; }
+        public string Comment { get; set; }        
+        public DateTime AddedOn { get; set; }
+    }       
+
+In many cases events are generated in response to commands, when they're processed. In some circumstances event can come from outside the system notifying the system what happened in the outside world. Events are immutable. Once they're published they cannot be modified. If there's a problem a compensating command needs to be issued to fix the problem.
+
+#### Message Handler
+
+Code that is being executed by recipient to process incoming message.
+
+    public void When(AddChainLink c)
+    {
+        // do something with DB
+    }
+    
+**Command Handler** is name for method handling command messages. Likewise, **Event Handler** method handles events.
 
 #### Message Queue
-Robust first in - first out stream of commands and events used for communication between different parts of the system. Usually guarantees at least once message delivery (so some form of deduplication needs to take place).
 
-#### Event Stream (aka Tape)
+Queue is like email inbox or queue at the store. It is used as a temporary storage location for messages before they can be processed by the recipient. Quite often queues are also used for communication between different parts of a distributed system (sender knows where to put messages and recipient knows where to pick them up).
 
-An append only stream of messages. Used to record events to be replayed at a later date.
+Different types of message queues can have different guarantees with regards to ordering (order is preserved or not) and reliability (message is delivered at most once, at least once or exactly once).
+
+#### Event Storage
+
+Specialized component or a subsystem dedicated to recording history of all relevant messages in the system. It frequently also manages replication, backups and failover.
+
+Messages being recorded in this store are usually associated with key. Messages that have same key in an event store are known to be in the same event stream. 
+
+Event storage can have any number of event streams.
 
 #### View
-State of the system generated by replaying events.
+
+View is a read model which is derived from some other data and optimized for querying (as in CQRS). In event-centric architectures views are usually generated and kept up-to-date by projecting events.
 
 #### Projection
-A set of rules on how to process events to generate a view.
+
+A set of rules on how to process events to generate a view. It is usually represented by a set of event handlers grouped within one class.
+
+
+
+## 3. Don't Break The Chain
+
+> TBD
