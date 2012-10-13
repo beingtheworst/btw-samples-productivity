@@ -43,9 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Productivity.Contracts\Productivity.Contracts.csproj">
       <Project>{3c54755c-616a-4de0-adda-c0d06dd21f4f}</Project>
       <Name>Productivity.Contracts</Name>

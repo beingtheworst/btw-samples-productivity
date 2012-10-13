@@ -43,9 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Productivity.Client\Productivity.Client.csproj">
       <Project>{511b1640-271e-4b96-b256-8fedaf677790}</Project>
       <Name>Productivity.Client</Name>
