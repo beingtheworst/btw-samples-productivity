@@ -51,6 +51,7 @@
     <Compile Include="Contracts\Messages.cs" />
     <Compile Include="Projections\GoalHierarchalProjection.cs" />
     <Compile Include="Projections\GoalCalendarProjection.cs" />
+    <Compile Include="Projections\UserGoalsProjections.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Storage\AddOrUpdateHint.cs" />
     <Compile Include="Storage\EventStream.cs" />
