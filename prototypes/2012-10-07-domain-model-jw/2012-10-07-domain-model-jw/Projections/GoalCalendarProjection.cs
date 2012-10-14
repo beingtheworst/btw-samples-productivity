@@ -36,5 +36,9 @@ namespace _2012_10_07_domain_model_jw.Projections
                                                User = e.User });
 
         }
+        public void When(DailyTaskScheduled e)
+        {
+
+        }
     }
 }

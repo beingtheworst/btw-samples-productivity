@@ -42,4 +42,27 @@ namespace _2012_10_07_domain_model_jw.Projections
 
         }
     }
+    public class UserGoalIndex
+    {
+        IDocumentReader<GoalId, UserGoalsView> _reader;
+        public UserGoalIndex(IDocumentReader<GoalId, UserGoalsView> reader)
+        {
+            _reader = reader;
+        }
+
+        public bool IsValidUser(GoalId goalId, string user)
+        {
+            Maybe<UserGoalsView> view;
+            view = _reader.Get(goalId);
+            if (!view.HasValue) return false;
+            return view.Value.User.Equals(user);
+        }
+        public bool HasGoalBeenCreated(GoalId goalId)
+        {
+            Maybe<UserGoalsView> view;
+            view = _reader.Get(goalId);
+            return view.HasValue;
+        }
+        
+    }
 }

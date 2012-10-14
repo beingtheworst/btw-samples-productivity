@@ -15,6 +15,7 @@ namespace _2012_10_07_domain_model_jw.Aggregates.DailyTask
         public bool TaskMissed { get; private set; }
         public DateTime? TaskStartedAt { get; private set; }
         public string Description { get; private set; }
+        public string User { get; private set; }
         public bool Created { get; private set; }
 
         public DailyTaskState(IEnumerable<IEvent> events)
@@ -31,7 +32,7 @@ namespace _2012_10_07_domain_model_jw.Aggregates.DailyTask
         {
             ((dynamic)this).When((dynamic)@event);
         }
-        public void When(DailyTaskAssigned e)
+        public void When(DailyTaskScheduled e)
         {
             this.Id = e.Id;
             this.GoalId = e.GoalId;

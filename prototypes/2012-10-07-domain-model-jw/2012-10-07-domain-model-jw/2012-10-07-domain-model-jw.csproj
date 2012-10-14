@@ -49,18 +49,22 @@
     <Compile Include="Contracts\Identifiers.cs" />
     <Compile Include="Contracts\Interfaces.cs" />
     <Compile Include="Contracts\Messages.cs" />
+    <Compile Include="Maybe.cs" />
     <Compile Include="Projections\GoalHierarchalProjection.cs" />
     <Compile Include="Projections\GoalCalendarProjection.cs" />
     <Compile Include="Projections\UserGoalsProjections.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Storage\AddOrUpdateHint.cs" />
     <Compile Include="Storage\EventStream.cs" />
+    <Compile Include="Storage\ExtendDocumentReader.cs" />
     <Compile Include="Storage\ExtendDocumentWriter.cs" />
+    <Compile Include="Storage\IDocumentReader.cs" />
     <Compile Include="Storage\IDocumentWriter.cs" />
     <Compile Include="Storage\StoreExceptions.cs" />
     <Compile Include="unit.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Services\" />
     <Folder Include="ValueObjects\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

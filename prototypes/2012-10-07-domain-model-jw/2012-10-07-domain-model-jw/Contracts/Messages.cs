@@ -36,7 +36,7 @@ public class SetGoal : ICommand
         this.Description = description;
         this.StartDate = startDate;
         this.LengthOfGoalInDays = lengthOfGoalInDays;
-        this.User;
+        this.User = user;
     }
     [DataMember(Order = 1)]
     public GoalId Id { get; private set; }
@@ -52,14 +52,15 @@ public class SetGoal : ICommand
 
 [Serializable]
 [DataContract(Namespace = "DOMAIN")]
-public class DailyTaskAssigned : IEvent
+public class DailyTaskScheduled : IEvent
 {
-    public DailyTaskAssigned(DailyTaskId id, GoalId goalId, DateTime taskDate, string description)
+    public DailyTaskScheduled(DailyTaskId id, GoalId goalId, DateTime taskDate, string description, string user)
     {
         this.Id = id;
         this.GoalId = goalId;
         this.TaskDate = taskDate;
         this.Description = description;
+        this.User = user;
     }
     [DataMember(Order = 1)]
     public DailyTaskId Id { get; private set; }
@@ -69,19 +70,21 @@ public class DailyTaskAssigned : IEvent
     public DateTime TaskDate { get; private set; }
     [DataMember(Order = 4)]
     public string Description { get; private set; }
-
+    [DataMember(Order = 5)]
+    public string User { get; private set; }
 }
 
 [Serializable]
 [DataContract(Namespace = "DOMAIN")]
-public class AssignDailyTask : ICommand
+public class ScheduleDailyTask : ICommand
 {
-    public AssignDailyTask(DailyTaskId id, GoalId goalId, DateTime taskDate, string description)
+    public ScheduleDailyTask(DailyTaskId id, GoalId goalId, DateTime taskDate, string description, string user)
     {
         this.Id = id;
         this.GoalId = goalId;
         this.TaskDate = taskDate;
         this.Description = description;
+        this.User = user;
     }
     [DataMember(Order = 1)]
     public DailyTaskId Id { get; private set; }
@@ -91,7 +94,8 @@ public class AssignDailyTask : ICommand
     public DateTime TaskDate { get; private set; }
     [DataMember(Order = 4)]
     public string Description { get; private set; }
-
+    [DataMember(Order = 5)]
+    public string User { get; private set; }
 }
 
 [Serializable]

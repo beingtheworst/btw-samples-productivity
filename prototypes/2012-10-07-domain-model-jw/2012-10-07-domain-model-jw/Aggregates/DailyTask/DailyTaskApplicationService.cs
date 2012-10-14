@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _2012_10_07_domain_model_jw.Projections;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,24 +9,29 @@ namespace _2012_10_07_domain_model_jw.Aggregates.DailyTask
     public class DailyTaskApplicationService : IApplicationService
     {
         IEventStore _eventStore;
-        public DailyTaskApplicationService(IEventStore eventStore)
+        UserGoalIndex goalService;
+
+        public DailyTaskApplicationService(IEventStore eventStore, UserGoalIndex goalService)
         {
             this._eventStore = eventStore;
+            this.goalService = goalService;
         }
 
         public void Execute(ICommand command)
         {
             ((dynamic)this).Apply((dynamic)command);
         }
-        public void When(AssignDailyTask c)
+        public void When(ScheduleDailyTask c)
         {
             Update(c.Id, a => a.AssignDailyTask(c.Id,
                                               c.GoalId,
                                               c.TaskDate,
-                                              c.Description));
+                                              c.Description,
+                                              c.User));
         }
         public void When(SetDailyTaskToComplete c)
         {
+            
             Update(c.Id, a => a.CompleteDailyTask(c.Id,
                                                   c.CompleteTime));
         }
@@ -46,7 +52,7 @@ namespace _2012_10_07_domain_model_jw.Aggregates.DailyTask
             {
 
                 EventStream eventStream = _eventStore.LoadEventStream(Id);
-                DailyTaskAggregate dailyTask = new DailyTaskAggregate(eventStream.Events);
+                DailyTaskAggregate dailyTask = new DailyTaskAggregate(eventStream.Events, goalService);
                 execute(dailyTask);
 
                 try
