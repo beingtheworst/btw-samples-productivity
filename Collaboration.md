@@ -61,3 +61,17 @@ to give back to RInat and the Load.CQRS community.
 * Email: jcwrequests@comcast.net
 
 **Preferred mode of communication**: Email or through the Lokad.CQRS community
+
+
+
+### Özgün Gör (since 2012-11-21)
+
+I am a junior developer currently working on an E-Learning project interested in  DDD, TDD and collaboration.
+
+**Interests in project**: Becoming a more capable software developer.
+
+**Contacts**:
+
+* Email: zgn.gor@gmail.com
+
+**Preferred mode of communication**: Email 
